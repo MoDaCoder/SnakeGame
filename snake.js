@@ -41,3 +41,21 @@ function randomFood(){
     }
 }
 
+document.addEventListener('keydown', keydown);
+
+function keydown(e){
+    switch(e.keyCode){
+        case 37: {
+            return vel = {x: -1, y: 0}
+        }
+        case 38: {
+            return vel = {x: 0, y: -1}
+        }
+        case 39: {
+            return vel = {x: 1, y: 0}
+        }
+        case 40: {
+            return vel = {x: 0, y: 1}
+        }
+    }
+}
