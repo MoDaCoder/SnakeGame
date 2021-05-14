@@ -90,4 +90,11 @@ function gameLoop(){
         randomFood();
     }
 
+    if (vel.x || vel.y){ /*Checking to see if snake bumped into itself and if it did it's returning it to initial state*/ 
+        for (let cell of snake){
+            if (cell.x === pos.x && cell.y === pos.y){
+                return init();
+            }
+        }
+    }
 }
