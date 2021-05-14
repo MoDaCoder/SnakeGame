@@ -23,4 +23,21 @@ function init(){
         {x: 10, y: 10},
     ]
     
+    randomFood();
+};
+
+init();
+
+function randomFood(){
+    food = {
+        x: Math.floor(Math.random() * T),
+        y: Math.floor(Math.random() * T)
+    }
+
+    for (let cell of snake) {
+        if(cell.x === food.x && food.y === cell.y){
+            return randomFood();
+        }
+    }
 }
+
