@@ -8,5 +8,5 @@ const ctx = canvas.getContext('2d');
 canvas.width = canvas.height = 400;
 
 const FR = 10; //Frame Rate
-const S = 20; //Screen size
-const T = canvas.width / S; //Tile size Canvas width divided by Screen size
+const S = 20; //Screen Size
+const T = canvas.width / S; //Tile Size Canvas Width divided by Screen Size
