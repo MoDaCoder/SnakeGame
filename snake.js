@@ -96,5 +96,7 @@ function gameLoop(){
                 return init();
             }
         }
+        snake.push({...pos}); /*Look up what this does exactly*/ 
+        snake.shift();
     }
 }
