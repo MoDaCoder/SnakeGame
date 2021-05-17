@@ -1,6 +1,6 @@
 const Bg_Clr = '#F8DF77';
 const Snake_Clr = '#2ECFCA';
-const Food_clr = '#FF4E62';
+const Food_Clr = '#FF4E62';
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
@@ -64,22 +64,27 @@ setInterval(() => {
     requestAnimationFrame(gameLoop);
 }, 1000 /FR);
 
-function gameLoop(){
-    ctx.fillStyle = Bg_clr;
-    ctx.fillReact(0, 0, canvas.width, canvas.height);
+// gameOverMessage() /*How do I get this to work?*/
 
-    ctx.fillStyle = Snake_clr;
+function gameLoop(){
+    ctx.fillStyle = Bg_Clr;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = Snake_Clr;
     for (let cell of snake) {
         ctx.fillRect(cell.x*S, cell.y*S, S,S);
     }
     
-    ctx.fillStyle = Food_clr;
-    ctx.fillReact(food.x*S, food.y*S,S,S);
+    ctx.fillStyle = Food_Clr;
+    ctx.fillRect(food.x*S, food.y*S,S,S);
 
     pos.x += vel.x;
     pos.y += vel.y;
 
     if (pos.x < 0 || pos.x > T || pos.y < 0 || pos.y > T){
+    alert("Are you blind or something!?")
+    alert("There's a wall there!")
+    alert("Game Over Loser")
       init();  
     }
 
@@ -91,12 +96,17 @@ function gameLoop(){
     }
 
     if (vel.x || vel.y){ /*Checking to see if snake bumped into itself and if it did it's returning it to initial state*/ 
-        for (let cell of snake){
-            if (cell.x === pos.x && cell.y === pos.y){
-                return init();
-            }
+    for (let cell of snake){
+        if (cell.x === pos.x && cell.y === pos.y){
+            alert("-___-")
+            alert("Are you kidding me???")
+            alert("How are you just going to eat yourself like that!?")
+            alert("Try not to eat yourself again dweeb")
+            return init();
         }
-        snake.push({...pos}); /*Look up what this does exactly*/ 
-        snake.shift();
     }
+    
+    snake.push({...pos}); /*Look up what this does exactly*/ 
+    snake.shift();
+}
 }
